@@ -1,4 +1,4 @@
-# avro2neo: Loading avro-format transaction trees into neo4j and hence into other tools
+# Analysing transaction trees using neo4j and hence other tools (Gephi and yEd)
 
 ## Introduction
 
@@ -71,7 +71,7 @@ More information can be found in the related implementation documentation.
 
 A summary of the processing pipeline is shown in Figure 1 below. 
 
-![Figure 1: Overview of the processing pipeline.](../graphics/pipeline-CROPPED.png){height=9cm}
+![Figure 1: Overview of the processing pipeline.](../img/pipeline-CROPPED.png){height=9cm}
 
 The starting point is the `CorMel` system itself, from which an Avro-format
 extract is taken on a timed basis and saved in a file, with one file per
@@ -108,7 +108,7 @@ nodes (and even edges).
 If we compare highlighted tree #1 using yEd's `circular` and `treeBalloon` layouts,
 we see that certain features are relatively stable between the two representations.
 
-![Figure 2: Highlighted tree #1, for 20 tree sample, yEd's "circular" layout, annotated to show features in coloured boxes.](yed/annotated/sample20yed_circular_hl01.png){height=9cm}
+![Figure 2: Highlighted tree #1, for 20 tree sample, yEd's "circular" layout, annotated to show features in coloured boxes.](../img/sample20yed_circular_hl01.png){height=9cm}
 
 The box on the right, with a pale green background, shows a relatively simple
 arrangement of isolated trees, differing in size from 3 nodes (`U`, `T` and
@@ -120,7 +120,7 @@ node that is shared with transaction tree 1. The box with the pale orange
 background includes both simple and shared edges associated with a particular
 node. There is a lot of complexity here, which is worthy of further study.
 
-![Figure 3: Highlighted tree #1, for 20 tree sample, yEd's "treeBalloon" layout, annotated to show features in coloured boxes.](yed/annotated/sample20yed_treeBalloon_hl01.png){height=9cm}
+![Figure 3: Highlighted tree #1, for 20 tree sample, yEd's "treeBalloon" layout, annotated to show features in coloured boxes.](../img/sample20yed_treeBalloon_hl01.png){height=9cm}
 
 Figure 2 and Figure 3 are very similar, with slightly different ways of showing
 the more complex overlapping transaction trees.
@@ -132,7 +132,7 @@ service endpoints are tasked with work from that node. If any of these service
 endpoints fails to provide a response, the transaction tree could block at that
 node. See Figure 4 below.
 
-![Figure 4: 20 tree sample, yEd's "treeBalloon" layout, showing the (out)degree for each node.](yed/sample20yed_treeBalloon_numberConnectedEdges.png){height=9cm}
+![Figure 4: 20 tree sample, yEd's "treeBalloon" layout, showing the (out)degree for each node.](../img/sample20yed_treeBalloon_numberConnectedEdges.png){height=9cm}
 
 The node's degree provides a "local" measure of the work passing through that
 node.  However, the node's position in the tree also affects the flow of data
@@ -140,7 +140,7 @@ and control. The *paths* of these flows should also be considered. One such
 measure is the node's *betweenness centrality*, which is represented in Figure
 5.
 
-![Figure 5: 20 tree sample, yEd's "treeBalloon" layout, showing the betweenness centrality for each node.](yed/sample20yed_treeBalloon_nodeBetweennessCentrality.png){height=9cm}
+![Figure 5: 20 tree sample, yEd's "treeBalloon" layout, showing the betweenness centrality for each node.](../img/sample20yed_treeBalloon_nodeBetweennessCentrality.png){height=9cm}
 
 The ranking of nodes (according to the computed metric) changes between Figures
 4 and 5, reflecting the differing weighting of local and global information
@@ -155,7 +155,7 @@ case).  More analysis would be needed to determine whether the distribution of
 component size might be a good predictor of whether a transaction tree has
 succeeded or failed.
 
-![Figure 6: 20 tree sample: the component size distribution for the 8 weakly connected components.](gephi/connectedComponentsReport/cc-size-distribution.png){height=9cm}
+![Figure 6: 20 tree sample: the component size distribution for the 8 weakly connected components.](../connectedComponentsReport/cc-size-distribution.png){height=9cm}
 
 The graph *diameter* was found to be 9, with an average path length just
 exceeding 3.  Therefore, a `U->T->T->H` path is average path through the
@@ -166,11 +166,11 @@ computed, with a little effort, in Neo4j).
 Gephi provides plots of *betweenness centrality*, *closeness centrality* and
 *eccentricity*, see Figures 7, 8 and 9 below.
 
-![Figure 7: 20 tree sample: the Betweenness Centrality distribution.](gephi/graphDistanceReport/Betweenness Centrality Distribution.png){height=9cm}
+![Figure 7: 20 tree sample: the Betweenness Centrality distribution.](../graphDistanceReport/Betweenness Centrality Distribution.png){height=9cm}
 
-![Figure 8: 20 tree sample: the Closeness Centrality distribution.](gephi/graphDistanceReport/Closeness Centrality Distribution.png){height=9cm}
+![Figure 8: 20 tree sample: the Closeness Centrality distribution.](../graphDistanceReport/Closeness Centrality Distribution.png){height=9cm}
 
-![Figure 9: 20 tree sample: the Eccentricity distribution.](gephi/graphDistanceReport/Eccentricity Distribution.png){height=9cm}
+![Figure 9: 20 tree sample: the Eccentricity distribution.](../graphDistanceReport/Eccentricity Distribution.png){height=9cm}
 
 In Figure 7, most of the mass of the Betweenness Centrality distribution can be
 found near 0, but there is also a relatively long tail. In Figure 8, the

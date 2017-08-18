@@ -192,7 +192,7 @@ and converted to PNG (for insertion into MS documents on MS Windows; PDF gives b
 
 The resulting plot can be viewed in Figure 1 below.
 
-![Figure 1: Timing data for uploading CorMel records to neo4j.](../graphics/20170802_153002-CROPPED.png){height=9cm}
+![Figure 1: Timing data for uploading CorMel records to neo4j.](../img/20170802_153002-CROPPED.png){height=9cm}
 
 For convenience, it is possible to recreate this and other PNG files using
 
@@ -521,5 +521,5 @@ differences between successive "frames" (graph plots).
 
 Figure 2 below is a summary of the processing pipeline described above.
 
-![Figure 1: Overview of the processing pipeline.](../graphics/pipeline-CROPPED.png){height=9cm}
+![Figure 2: Overview of the processing pipeline.](../img/pipeline-CROPPED.png){height=9cm}
 
